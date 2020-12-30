@@ -1,9 +1,7 @@
 package com.winnerwinter.gallery
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -24,6 +22,8 @@ class GalleryFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var galleryViewModel: GalleryViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -40,8 +40,24 @@ class GalleryFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_gallery, container, false)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.swipeIndicator -> {
+                swipeLayoutGallery.isRefreshing = true
+                galleryViewModel.fetchData()
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        setHasOptionsMenu(true)
 
         val galleryAdapter = GalleryAdapter()
         recyclerView.apply {
@@ -49,7 +65,7 @@ class GalleryFragment : Fragment() {
             layoutManager = GridLayoutManager(requireContext(), 2)
         }
 
-        val galleryViewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(requireActivity().application)).get(GalleryViewModel::class.java)
+        galleryViewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(requireActivity().application)).get(GalleryViewModel::class.java)
         galleryViewModel.photoList.observe(viewLifecycleOwner, {
             galleryAdapter.submitList(it)
             swipeLayoutGallery.isRefreshing = false
