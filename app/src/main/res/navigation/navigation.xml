@@ -11,12 +11,12 @@
         android:label="Gallery"
         tools:layout="@layout/fragment_gallery">
         <action
-            android:id="@+id/action_galleryFragment_to_photoFragment"
-            app:destination="@id/photoFragment" />
+            android:id="@+id/action_galleryFragment_to_pagerPhotoFragment"
+            app:destination="@id/pagerPhotoFragment" />
     </fragment>
     <fragment
-        android:id="@+id/photoFragment"
-        android:name="com.winnerwinter.pagergallery.PhotoFragment"
-        android:label="Photo"
-        tools:layout="@layout/fragment_photo" />
+        android:id="@+id/pagerPhotoFragment"
+        android:name="com.winnerwinter.pagergallery.PagerPhotoFragment"
+        android:label="fragment_pager_photo"
+        tools:layout="@layout/fragment_pager_photo" />
 </navigation>
