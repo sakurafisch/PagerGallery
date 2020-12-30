@@ -52,8 +52,13 @@ class GalleryFragment : Fragment() {
         val galleryViewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(requireActivity().application)).get(GalleryViewModel::class.java)
         galleryViewModel.photoList.observe(viewLifecycleOwner, {
             galleryAdapter.submitList(it)
+            swipeLayoutGallery.isRefreshing = false
         })
         galleryViewModel.photoList.value?:galleryViewModel.fetchData()
+
+        swipeLayoutGallery.setOnRefreshListener {
+            galleryViewModel.fetchData()
+        }
     }
 
     companion object {
