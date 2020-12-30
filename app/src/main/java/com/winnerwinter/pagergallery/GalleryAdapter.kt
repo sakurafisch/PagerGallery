@@ -1,4 +1,4 @@
-package com.winnerwinter.gallery
+package com.winnerwinter.pagergallery
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle

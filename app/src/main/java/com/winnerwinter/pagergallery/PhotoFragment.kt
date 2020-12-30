@@ -1,4 +1,4 @@
-package com.winnerwinter.gallery
+package com.winnerwinter.pagergallery
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -12,7 +12,6 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import kotlinx.android.synthetic.main.fragment_photo.*
-import kotlinx.android.synthetic.main.gallery_cell.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

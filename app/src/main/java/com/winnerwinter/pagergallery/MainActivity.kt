@@ -1,4 +1,4 @@
-package com.winnerwinter.gallery
+package com.winnerwinter.pagergallery
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

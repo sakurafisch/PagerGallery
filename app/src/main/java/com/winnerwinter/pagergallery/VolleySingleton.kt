@@ -1,4 +1,4 @@
-package com.winnerwinter.gallery
+package com.winnerwinter.pagergallery
 
 import android.content.Context
 import com.android.volley.RequestQueue

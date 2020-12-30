@@ -8,7 +8,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.winnerwinter.gallery"
+        applicationId "com.winnerwinter.pagergallery"
         minSdkVersion 29
         targetSdkVersion 30
         versionCode 1

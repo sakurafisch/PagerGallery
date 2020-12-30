@@ -1,4 +1,4 @@
-package com.winnerwinter.gallery
+package com.winnerwinter.pagergallery
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
