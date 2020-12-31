@@ -50,7 +50,7 @@ class PagerPhotoFragment : Fragment() {
         viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                photoTag.text = "${position + 1}/${photoList?.size}"
+                photoTag.text = getString(R.string.photo_tag, position + 1, photoList?.size)
             }
         })
 
